@@ -20,7 +20,7 @@ cat("Mediana  = ",Md.filhos, "\n")
 ##############################################################
 ##Exemplo 3    
 ##############################################################
-#install.packages("ebda.tar.gz", repos = NULL, type = "source"))
+install.packages("ebda.tar.gz", repos = NULL, type = "source")
 library(ebda)
 
 k<-7
