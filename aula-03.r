@@ -94,3 +94,57 @@ legend("topright", c("G: General Mills", "K: Kellogs","N: Nabisco",
        bty = "n", cex = 0.8)
 detach(UScereal)
 
+##############################################################
+##Exercício 1 
+##################################################################
+p.sat <- c("B","R","R","R","P","B","B","R","B",
+          "B","E","B","B","E","B","R","R","R","R",
+          "R","P","R","B","E","P","B","E","E","E",
+          "B","E","R","B","B","B","B","E","E","E","R")
+
+p.sat<-factor(p.sat, levels = c("P","R","B","E"), ordered = TRUE)
+
+cont.sat<-table(p.sat)
+cont.sat
+contr.sat<-round(prop.table(cont.sat),2)
+contr.sat
+barplot(cont.sat, main = "Gráfico em barras", 
+        ylab = "Frequência", col = "orange")
+legend("topleft", c("Péssimo (P)", "Regular (R)", "Bom (B)",
+                    "Excelente (E)"), bty = "n", cex = 0.8)
+barplot(contr.sat, main = "Gráfico em barras", 
+        ylab = "Frequência relativa", col = "yellow", 
+        ylim = c(0,0.5))
+legend("topleft", c("Péssimo (P)", "Regular (R)", "Bom (B)",
+                    "Excelente (E)"), bty = "n", cex = 0.8)
+
+
+##############################################################
+##Exercico 3
+##############################################################
+library(MASS)
+str(Cars93)
+tail(Cars93)
+
+attach(Cars93)
+which(is.na(AirBags))
+cont.AirBags<-table(AirBags)
+cont.AirBags
+addmargins(cont.AirBags)
+contr.AirBags<-round(prop.table(cont.AirBags),2)
+contr.AirBags
+addmargins(contr.AirBags)
+
+barplot(cont.AirBags, main = "Gráfico em barras", 
+        ylab = "Frequência", col = "royalblue4",
+        ylim = c(0,55))
+legend("topright", c("none (Nenhum)", "driver only (Apenas
+motorista)","driver & passenger (Motorista e passageiro)"), 
+       bty = "n", cex = 0.8)
+barplot(contr.AirBags, main = "Gráfico em barras", 
+        ylab = "Frequência relativa", col = "royalblue1", 
+        ylim = c(0,0.6))
+legend("topright", c("none (Nenhum)", "driver only (Apenas
+motorista)","driver & passenger (Motorista e passageiro)"), 
+       bty = "n", cex = 0.8)
+detach(Cars93)

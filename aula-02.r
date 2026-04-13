@@ -51,7 +51,7 @@ tab.pluv<-table(cut(pluv,classes))
 tab.pluv
 tabr.pluv<-round(prop.table(tab.pluv),2)
 tabr.pluv
-
+ex =   rep(seq(1, 3), 3)
 hist(pluv, main = "Histograma", xlab = "pluviosidade anual", 
         ylab = "Frequência Absoluta", col = "salmon",
      breaks = classes)
@@ -83,4 +83,79 @@ hist(tempo, main = "Histograma", xlab = "tempo de atendimento (min)",
      breaks = classes)
 plot(tabr.t, main = "Histograma", xlab = "tempo de atendimento (min)",
      ylab = "Frequência relativa", col = "springgreen4", type = "h",
+     lwd = 4)
+##############################################################
+##Exercicio 1 
+##############################################################
+
+gordura = c(38,32,34,39,40,54,32,17,29,33,
+           57,40,25,36,33,24,42,16,31,33)
+intervalo = max(gordura)-min(gordura)# tamanho da distancia amostra
+n = length(gordura) # quantidade de amostras
+k = ceiling(1+3.332*log10(n)) #numero de distribuições (numero de colunas)
+h = ceiling(intervalo/k) #amplitude até o proxima categoria
+L0 = floor(min(gordura)) #menor numero
+classes = seq(L0,L0+h*k,h) #classifica as amplitudes
+
+tab.g = table(cut(gordura,classes,right = FALSE))
+tab.g
+tabr.g = round(prop.table(tab.g),2)
+tabr.g
+
+hist(gordura, main = "Histograma", xlab = "Ingestão de Gordura Saturada", 
+     ylab = "Frequência Absoluta", col = "springgreen" ,
+     breaks = classes)
+plot(tabr.g, main = "Histograma", xlab = "Ingestão de Gordura Saturada",
+     ylab = "Frequência relativa", col = "springgreen4", type = "h",
+     lwd = 4)
+
+
+##############################################################
+##Exercicio 2
+##############################################################
+
+chamadas= c(3,4,6,10,12,10,4,5,5,6,6,7,
+          8,8,8,11,9,11,12,12,12,9,8,7)
+intervalo = max(chamadas)-min(chamadas)# tamanho da distancia amostra
+n = length(chamadas) # quantidade de amostras
+k = ceiling(1+3.332*log10(n)) #numero de distribuições (numero de colunas)
+h = ceiling(intervalo/k) #amplitude até o proxima categoria
+L0 = floor(min(chamadas)) #menor numero
+classes = seq(L0,L0+h*k,h) #classifica as amplitudes
+
+tab.chamadas = table(cut(chamadas,classes,right = FALSE))
+tab.chamadas
+tabr.chamadas = round(prop.table(tab.chamadas),2)
+tabr.chamadas
+
+plot(tab.chamadas, main = "Histograma", xlab = "Números de chamadas", 
+     ylab = "Frequência Absoluta", col = "blue", type = "h", 
+     lwd = 4)
+plot(tabr.chamadas, main = "Histograma", xlab = "Números de chamadas",
+     ylab = "Frequência relativa", col = "blue", type = "h",
+     lwd = 4)
+
+##############################################################
+##Exercicio 3
+##############################################################
+
+paladar= c(5,7,4,5,7,8,10,6,9,5,7,6,
+            8,2,9,7,8,1,3,10,8,8,7,9)
+intervalo = max(paladar)-min(paladar)# tamanho da distancia amostra
+n = length(paladar) # quantidade de amostras
+k = ceiling(1+3.332*log10(n)) #numero de distribuições (numero de colunas)
+h = ceiling(intervalo/k) #amplitude até o proxima categoria
+L0 = floor(min(paladar)) #menor numero
+classes = seq(L0,L0+h*k,h) #classifica as amplitudes
+
+tab.paladar = table(cut(paladar,classes,right = FALSE))
+tab.paladar
+tabr.paladar = round(prop.table(tab.paladar),2)
+tabr.paladar
+
+plot(tab.paladar, main = "Histograma", xlab = "Teste Paladar", 
+     ylab = "Frequência Absoluta", col = "blue", type = "h", 
+     lwd = 4)
+plot(tabr.paladar, main = "Histograma", xlab = "Teste Paladar",
+     ylab = "Frequência relativa", col = "blue", type = "h",
      lwd = 4)

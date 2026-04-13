@@ -81,3 +81,8 @@ barplot(tab, main = "Grau de instrução por gênero",
                                   cex = 0.8),
                beside = TRUE)  
 
+
+idades = c(25,30,22,45,28,32)
+sexo = c("F","M","F","M","F","M")
+
+tapply(idades,sexo, mean)

@@ -7,6 +7,10 @@ altura<-c(1.98,1.97,2.10,2.05,2.00,1.85)
 xbarra<-round(mean(altura),2)
 cat("Média aritmética = ",xbarra, "\n")
 
+altura<-c()
+xbarra<-round(mean(altura),2)
+cat("Média aritmética = ",xbarra, "\n")
+
 ##############################################################
 ##Exemplo 2    
 ##############################################################
@@ -82,6 +86,23 @@ fi.xi<-fi*xi
 xbarra<-sum(fi.xi)/n
 #calcula em metros
 xbarra<-round(xbarra/100,2)
+cat("Média aritmética = ",xbarra, "\n")
+############Prova############################
+
+k<-5
+h<-2
+L0<-2
+estatura<-seq(L0,L0+h*k,h)
+fi<-c(4,6,10,8,2)
+n<-sum(fi)
+
+xi<-NULL
+#calcula os valores de xi
+for(i in 1:k) xi[i]<-(estatura[i] + estatura[i+1])/2
+fi.xi<-fi*xi
+xbarra<-sum(fi.xi)/n
+#calcula em metros
+xbarra<-round(xbarra/100,4)
 cat("Média aritmética = ",xbarra, "\n")
 
 ##############################################################
